@@ -16,5 +16,5 @@ The library also includes builders for common objects:
 
   // *http.Request
     req = gspec.Request()
-                .WithUrl("/about?home=true")
-                .WithHeader("Accept-Encoding", "gzip").Req
+                .Url("/about?home=true")
+                .Header("Accept-Encoding", "gzip").Req

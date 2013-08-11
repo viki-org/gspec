@@ -15,15 +15,15 @@ func Request() *RequestBuilder {
       Header: make(http.Header),
     },
   }
-  return rb.WithUrl("/")
+  return rb.Url("/")
 }
 
-func (rb *RequestBuilder) WithHeader(key, value string) *RequestBuilder {
+func (rb *RequestBuilder) Header(key, value string) *RequestBuilder {
   rb.Req.Header.Set(key, value)
   return rb
 }
 
-func (rb *RequestBuilder) WithUrl(u string) *RequestBuilder {
+func (rb *RequestBuilder) Url(u string) *RequestBuilder {
   rb.Req.URL, _ = url.Parse(u)
   return rb
 }
