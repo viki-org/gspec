@@ -1,6 +1,7 @@
 package gspec
 
 import (
+  "reflect"
   "testing"
 )
 
@@ -25,4 +26,10 @@ func (sr *SR) ToEqual(actual interface{}) {
   if sr.expected != actual {
     sr.t.Errorf("expected %+v to equal %+v", sr.expected, actual)
   }
+}
+
+func (sr *SR) ToBeNil() {
+  if sr.expected == nil { return }
+  if reflect.ValueOf(sr.expected).IsNil() { return }
+  sr.t.Errorf("expected %+v to be nil", sr.expected)
 }

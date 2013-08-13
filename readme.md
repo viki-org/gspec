@@ -9,7 +9,7 @@ The main purpose of this library is to streamline the `if false { t.Error(...) }
       spec.Expect(user.New("goku").PowerLevel).ToEqual(9001)
     }
 
-We'll add more than `ToEqual` as the need arises
+Methods currently supported are `ToEqual(value)` and `ToBeNil()`
 
 ### Builers
 The library also includes builders for common objects:
