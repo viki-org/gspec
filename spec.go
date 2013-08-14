@@ -33,3 +33,9 @@ func (sr *SR) ToBeNil() {
   if reflect.ValueOf(sr.expected).IsNil() { return }
   sr.t.Errorf("expected %+v to be nil", sr.expected)
 }
+
+func (sr *SR) ToNotBeNil() {
+  if sr.expected != nil { return }
+  if !reflect.ValueOf(sr.expected).IsNil() { return }
+  sr.t.Errorf("expected %+v to not be nil", sr.expected)
+}
