@@ -18,7 +18,7 @@ func New(t *testing.T) (*S) {
   return &S{t:t}
 }
 
-func (s *S) Expect(expected interface{}) (sr *SR) {
+func (s *S) Expect(expected interface{}, garbage ...interface{}) (sr *SR) {
   return &SR{t: s.t, expected: expected,}
 }
 
