@@ -17,4 +17,6 @@ The library also includes builders for common objects:
   // *http.Request
     req = gspec.Request()
                 .Url("/about?home=true")
+                .Method("POST")
+                .RemoteAddr("119.81.31.35:49958")
                 .Header("Accept-Encoding", "gzip").Req
