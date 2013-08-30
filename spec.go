@@ -28,6 +28,12 @@ func (sr *SR) ToEqual(actual interface{}) {
   }
 }
 
+func (sr *SR) ToNotEqual(actual interface{}) {
+  if sr.expected == actual {
+    sr.t.Errorf("expected %+v to not equal %+v", sr.expected, actual)
+  }
+}
+
 func (sr *SR) ToBeNil() {
   if sr.expected == nil { return }
   if reflect.ValueOf(sr.expected).IsNil() { return }

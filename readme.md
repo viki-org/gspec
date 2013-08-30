@@ -9,7 +9,7 @@ The main purpose of this library is to streamline the `if false { t.Error(...) }
       spec.Expect(user.New("goku").PowerLevel).ToEqual(9001)
     }
 
-Methods currently supported are `ToEqual(value)`, `ToBeNil()` and `ToNotBeNill()`
+Methods currently supported are `ToEqual(value)`, `ToNotEqual(value)`, `ToBeNil()` and `ToNotBeNill()`
 
 When multiple values are used to set up the expectation, only the first value is compared. This is largely meant to streamline functions which return an error.
 
