@@ -16,9 +16,15 @@ When multiple values are used to set up the expectation, only the first value is
 ### Builers
 The library also includes builders for common objects:
 
-  // *http.Request
+    // *http.Request
     req = gspec.Request()
                 .Url("/about?home=true")
                 .Method("POST")
                 .RemoteAddr("119.81.31.35:49958")
                 .Header("Accept-Encoding", "gzip").Req
+
+
+### Installation
+Install using the "go get" command:
+
+    go get github.com/viki-org/gspec
