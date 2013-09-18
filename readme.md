@@ -21,6 +21,7 @@ The library also includes builders for common objects:
                 .Url("/about?home=true")
                 .Method("POST")
                 .RemoteAddr("119.81.31.35:49958")
+                .Body([]byte("the spice must flow"))
                 .Header("Accept-Encoding", "gzip").Req
 
 
