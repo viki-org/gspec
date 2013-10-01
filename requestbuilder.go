@@ -1,7 +1,6 @@
 package gspec
 
 import (
-  "bytes"
   "strings"
   "net/url"
   "net/http"
@@ -9,14 +8,6 @@ import (
 
 type RequestBuilder struct {
   Req *http.Request
-}
-
-type FakeBody struct {
-  bytes.Buffer
-}
-
-func (f *FakeBody) Close() error {
-  return nil
 }
 
 func Request() *RequestBuilder {
