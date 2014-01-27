@@ -13,6 +13,9 @@ Methods currently supported are `ToEqual(value)`, `ToNotEqual(value)`, `ToBeNil(
 
 When multiple values are used to set up the expectation, only the first value is compared. This is largely meant to streamline functions which return an error.
 
+### ExpectOrFatal
+`ExpectOrFatal` provides the same functionality as the `Expect` method but runs a fatal when the expectation is not met.
+
 ### Builers
 The library also includes builders for common objects:
 
