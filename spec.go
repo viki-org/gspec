@@ -41,17 +41,15 @@ func (sr *SR) ToNotEqual(actual interface{}) {
 }
 
 func (sr *SR) ToBeNil() {
-  if sr.isNil() { return }
+  if sr.expected == nil { return }
+  if reflect.ValueOf(sr.expected).IsNil() { return }
   sr.fail(fmt.Sprintf("expected %+v to be nil", sr.expected))
 }
 
 func (sr *SR) ToNotBeNil() {
-  if !sr.isNil() { return }
+  if sr.expected != nil { return }
+  if !reflect.ValueOf(sr.expected).IsNil() { return }
   sr.fail(fmt.Sprintf("expected %+v to not be nil", sr.expected))
-}
-
-func (sr *SR) isNil() bool {
-  return sr.expected == nil || reflect.ValueOf(sr.expected).IsNil()
 }
 
 func (sr *SR) fail(msg string) {
