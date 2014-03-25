@@ -4,6 +4,7 @@ import (
   "fmt"
   "reflect"
   "testing"
+  "regexp"
 )
 
 type S struct {
@@ -50,6 +51,14 @@ func (sr *SR) ToNotBeNil() {
   if sr.expected != nil { return }
   if !reflect.ValueOf(sr.expected).IsNil() { return }
   sr.fail(fmt.Sprintf("expected %+v to not be nil", sr.expected))
+}
+
+// check a string against a regex
+func (sr *SR) ToMatch(expected interface{}) {
+  expectedRegex := expected.(string)
+  matched, err := regexp.MatchString(expectedRegex, reflect.ValueOf(sr.expected).String())
+  if matched == true && err == nil { return }
+  sr.fail(fmt.Sprintf("expected %+v to match %+v", sr.expected, expectedRegex))
 }
 
 func (sr *SR) fail(msg string) {
